@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outlast the Baddies</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- WELCOME SCREEN -->
+    <div id="welcomeScreen" class="welcome-screen">
+        <div class="welcome-container">
+            <div class="welcome-header">
+                <h1 class="game-title">
+                    <span class="skull-icon">💀</span>
+                    OUTLAST THE BADDIES
+                    <span class="trophy-icon">🏆</span>
+                </h1>
+                <p class="tagline">Can you escape the dungeon alive?</p>
+            </div>
+
+            <div class="rules-section">
+                <h2>🎮 How to Play</h2>
+                
+                <div class="rule-card">
+                    <div class="rule-icon">🎯</div>
+                    <div class="rule-content">
+                        <h3>Objective</h3>
+                        <p>Navigate your hero through the dangerous dungeon and reach the <span class="highlight-green">EXIT</span> without getting caught!</p>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">⌨️</div>
+                    <div class="rule-content">
+                        <h3>Controls</h3>
+                        <div class="controls-grid">
+                            <div><strong>W / ↑</strong> - Move Up</div>
+                            <div><strong>S / ↓</strong> - Move Down</div>
+                            <div><strong>A / ←</strong> - Move Left</div>
+                            <div><strong>D / →</strong> - Move Right</div>
+                            <div><strong>Q</strong> - Diagonal Up-Left</div>
+                            <div><strong>E</strong> - Diagonal Up-Right</div>
+                            <div><strong>Z</strong> - Diagonal Down-Left</div>
+                            <div><strong>C</strong> - Diagonal Down-Right</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">🗺️</div>
+                    <div class="rule-content">
+                        <h3>Game Elements</h3>
+                        <div class="elements-grid">
+                            <div class="element-item">
+                                <div class="element-box hero-box"></div>
+                                <div>
+                                    <strong>Hero</strong>
+                                    <p>That's you! Stay alive and reach the exit.</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box exit-box"></div>
+                                <div>
+                                    <strong>Exit</strong>
+                                    <p>Your goal! Reach this to win the game.</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box monster-box"></div>
+                                <div>
+                                    <strong>Monster</strong>
+                                    <p>Moves 1 step towards you each turn. Avoid!</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box super-monster-box"></div>
+                                <div>
+                                    <strong>Super Monster</strong>
+                                    <p>Moves 2 steps towards you! Very dangerous!</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box bat-box"></div>
+                                <div>
+                                    <strong>Bat</strong>
+                                    <p>Moves randomly. Unpredictable and scary!</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box abyss-box"></div>
+                                <div>
+                                    <strong>Abyss</strong>
+                                    <p>A deadly hole. Fall in and it's game over!</p>
+                                </div>
+                            </div>
+                            <div class="element-item">
+                                <div class="element-box wall-box"></div>
+                                <div>
+                                    <strong>Wall</strong>
+                                    <p>Blocks your path. You can't walk through it.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">⚠️</div>
+                    <div class="rule-content">
+                        <h3>Important Rules</h3>
+                        <ul class="rules-list">
+                            <li>Every time you move, all baddies (monsters, super monsters, and bats) also move</li>
+                            <li>If a baddie catches you, the game is over</li>
+                            <li>If you fall into an abyss, the game is over</li>
+                            <li>Baddies can also fall into abysses - use this to your advantage!</li>
+                            <li>Plan your moves carefully and think ahead</li>
+                            <li>Super monsters are twice as fast as regular monsters</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="rule-card">
+                    <div class="rule-icon">💡</div>
+                    <div class="rule-content">
+                        <h3>Pro Tips</h3>
+                        <ul class="rules-list">
+                            <li>Keep distance from monsters - they always move towards you</li>
+                            <li>Use walls as barriers to block monster paths</li>
+                            <li>Bats are unpredictable, so give them extra space</li>
+                            <li>Try to lure monsters into abysses</li>
+                            <li>Take your time - there's no time limit!</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button id="startGameBtn" class="start-btn">
+                <span>START PLAYING</span>
+                <span class="btn-arrow">→</span>
+            </button>
+
+            <div class="welcome-footer">
+                <p>Good luck, brave hero! 🗡️</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- DIFFICULTY SELECTION SCREEN -->
+    <div id="difficultyScreen" class="difficulty-screen hidden">
+        <div class="difficulty-container">
+            <h1 class="difficulty-title">Choose Your Challenge</h1>
+            <p class="difficulty-subtitle">Select difficulty level to begin</p>
+            
+            <div class="difficulty-cards">
+                <div class="difficulty-card" data-difficulty="easy">
+                    <div class="difficulty-icon">😊</div>
+                    <h2>EASY</h2>
+                    <div class="difficulty-stats">
+                        <p>🐾 2 Monsters</p>
+                        <p>👹 1 Super Monster</p>
+                        <p>🦇 1 Bat</p>
+                        <p>🕳️ 15 Abysses</p>
+                    </div>
+                    <button class="select-difficulty-btn" data-difficulty="easy">Select Easy</button>
+                </div>
+
+                <div class="difficulty-card featured" data-difficulty="medium">
+                    <div class="featured-badge">RECOMMENDED</div>
+                    <div class="difficulty-icon">😐</div>
+                    <h2>MEDIUM</h2>
+                    <div class="difficulty-stats">
+                        <p>🐾 4 Monsters</p>
+                        <p>👹 2 Super Monsters</p>
+                        <p>🦇 2 Bats</p>
+                        <p>🕳️ 30 Abysses</p>
+                    </div>
+                    <button class="select-difficulty-btn" data-difficulty="medium">Select Medium</button>
+                </div>
+
+                <div class="difficulty-card" data-difficulty="hard">
+                    <div class="difficulty-icon">😰</div>
+                    <h2>HARD</h2>
+                    <div class="difficulty-stats">
+                        <p>🐾 6 Monsters</p>
+                        <p>👹 3 Super Monsters</p>
+                        <p>🦇 3 Bats</p>
+                        <p>🕳️ 50 Abysses</p>
+                    </div>
+                    <button class="select-difficulty-btn" data-difficulty="hard">Select Hard</button>
+                </div>
+            </div>
+
+            <button id="backToWelcomeBtn" class="back-btn">← Back to Menu</button>
+
+            <!-- Leaderboard Section -->
+            <div class="leaderboard-section">
+                <h2>🏆 Top Scores</h2>
+                <div class="leaderboard-tabs">
+                    <button class="tab-btn active" data-difficulty="easy">Easy</button>
+                    <button class="tab-btn" data-difficulty="medium">Medium</button>
+                    <button class="tab-btn" data-difficulty="hard">Hard</button>
+                </div>
+                <div id="leaderboardContent" class="leaderboard-content">
+                    <!-- Leaderboard will be populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME SCREEN -->
+    <div id="gameScreen" class="game-screen hidden">
+        <div class="container">
+            <!-- Game Header -->
+            <header>
+                <h1>💀 Outlast the Baddies 🏆</h1>
+                <div class="game-info-bar">
+                    <div class="info-item">
+                        <span class="info-label">Level:</span>
+                        <span id="currentLevel" class="info-value">1</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Difficulty:</span>
+                        <span id="currentDifficulty" class="info-value">Medium</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Moves:</span>
+                        <span id="moveCount" class="info-value">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">🔇</span>
+                        <label class="sound-toggle">
+                            <input type="checkbox" id="soundToggle" checked>
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Message Display -->
+            <div id="messageBox" class="message-box hidden">
+                <span id="messageText"></span>
+            </div>
+
+            <!-- Game Board Container -->
+            <div class="board-container">
+                <div id="gameBoard" class="game-board"></div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <button id="newLevelBtn" class="btn-primary hidden">Next Level</button>
+                <button id="newGameBtn" class="btn-primary">Restart Level</button>
+                <button id="backToMenuBtn" class="btn-secondary">Back to Menu</button>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <h3>Legend:</h3>
+                <div class="legend-grid">
+                    <div class="legend-item">
+                        <div class="legend-box hero"></div>
+                        <span>Hero</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box exit"></div>
+                        <span>Exit</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box monster"></div>
+                        <span>Monster</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box super-monster"></div>
+                        <span>Super Monster</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bat"></div>
+                        <span>Bat</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box abyss"></div>
+                        <span>Abyss</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box wall"></div>
+                        <span>Wall</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box empty"></div>
+                        <span>Empty Space</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div id="victoryModal" class="modal hidden">
+        <div class="modal-content victory-content">
+            <h2>🎉 LEVEL COMPLETE! 🎉</h2>
+            <p class="victory-message">Amazing! You escaped in <span id="finalMoves">0</span> moves!</p>
+            <div class="victory-stats">
+                <div class="stat-item">
+                    <span class="stat-label">Level:</span>
+                    <span id="victoryLevel" class="stat-value">1</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Difficulty:</span>
+                    <span id="victoryDifficulty" class="stat-value">Medium</span>
+                </div>
+            </div>
+            <input type="text" id="playerNameInput" placeholder="Enter your name for leaderboard" maxlength="20">
+            <div class="modal-buttons">
+                <button id="nextLevelModalBtn" class="btn-primary">Next Level →</button>
+                <button id="saveScoreBtn" class="btn-secondary">Save Score</button>
+                <button id="closeVictoryBtn" class="btn-secondary">Back to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
